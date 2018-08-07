@@ -5,7 +5,7 @@ This is a old custom bot for the game s0urce.io made some month ago just for fun
 ![Beautiful UI](https://i.imgur.com/ZQD6cir.png "Beautiful UI")
 
 ## How to use ?
-Install ***socket.io** with the command **npm install** in your cmd prompt.
+Install **socket.io** with the command **npm install** in your cmd prompt.
 
 Edit **config.js** for change your *username, quote *and* signature*.
 
