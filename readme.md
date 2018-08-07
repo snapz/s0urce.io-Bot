@@ -2,7 +2,7 @@
 
 This is a old custom bot for the game s0urce.io made some month ago just for fun. Some friend asked me to share it for do their own bot, so i've updated it with the new system of word and updated packetId.
 
-![alt tag](https://i.imgur.com/ZQD6cir.png "Clean ui")
+![Beautiful UI](https://i.imgur.com/ZQD6cir.png "Beautiful UI")
 
 ## How to use ?
 Install ***socket.io** with the command **npm install** in your cmd prompt.
