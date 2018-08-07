@@ -459,7 +459,16 @@ myBot.prototype.can_attack = function() {
 /************************/
 myBot.prototype.get_random_target_to_attack = function() {
 	if(window.myBot.leaderboard.length == 0) return null;
-	return window.myBot.leaderboard[Math.floor(Math.random() * window.myBot.leaderboard.length)];
+
+	// Random
+	if(findVictimeType === 0)
+		return window.myBot.leaderboard[Math.floor(Math.random() * window.myBot.leaderboard.length)];
+	// Focus the last
+	else if(findVictimeType === 1)
+		return window.myBot.leaderboard[window.myBot.leaderboard.length - 1];
+	// Focus the first
+	else if(findVictimeType === 2)
+		return window.myBot.leaderboard[0];
 };
 
 myBot.prototype.generer_random_port = function() {
