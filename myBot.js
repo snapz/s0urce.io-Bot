@@ -284,12 +284,7 @@ myBot.prototype._on_task_update_firewall = function(data) {
 
 myBot.prototype._on_task_log = function(data) {
 	console.log("_on_task_log")
-	if(data.type == 2)
-	{
-		helpers.log('red', 'HACK', 'Impossible d\'attaquer cette cible on relance bientôt.');
-		window.myBot.attack_state = 3;
-		setTimeout(function(){ window.myBot.__proto__.launch_attack_process(); }, 1000);
-	}
+	if(data.type == 2) window.myBot.attack_state = 3;
     helpers.log('red', 'HACK', 'Tentative de hack du port <b>'+portToLetter[data.port]+'</b> par <b>'+data.name + '</b> ('+data.id+')', LOG_.event);
 };
 
@@ -441,7 +436,7 @@ myBot.prototype.attack = function(target_id, port) {
 	if(!window.myBot.__proto__.can_attack())
 	{
 		helpers.log('red', 'ATTACK', 'Vous n\'avez pas assez de btc pour attaquer');
-		setTimeout(function(){ window.myBot.__proto__.launch_attack_process(); }, 5000);
+		setTimeout(function(){ window.myBot.__proto__.launch_attack_process(); }, 1000);
 		return;
 	}
 	window.myBot.attack_state = 0;
@@ -521,40 +516,11 @@ myBot.prototype.calculerPrixMiner = function(minerIndex) {
 };
 
 
-/*
 myBot.prototype.tryUpdateMiner = function() {
 	setTimeout(function()
 	{
 		var myCash = helpers.roundDecimal(window.myBot.coins.value, 4);
 		for (var minerIndex = 5; minerIndex >= 0; minerIndex--) {
-			var multiPlicateur = (minerIndex == 0) ? 1.225 : 1.1;
-			var priceNext = window.myBot.__proto__.calculerPrixMiner(minerIndex);
-			// Si on a la tune pour acheter au moins la prochaine upgrade
-			if(priceNext > 0 && priceNext < (window.myBot.coins.value - (window.myBot.coins.rate * 5 * 20) ))
-			{
-				// On va la buy & voir pour en buy plusieur
-				do
-				{
-					// On buy
-					window.myBot.send_TASK_SHOP_MINER(minerIndex)
-					// On enleve le prix
-					window.myBot.coins.value -= priceNext;
-					// On update le next prix
-					priceNext = priceNext * multiPlicateur;
-
-				} while ((window.myBot.coins.value - (window.myBot.coins.rate * 5 * 20) ) > priceNext);
-			}
-		}
-		
-	}, 500);
-};
-*/
-
-myBot.prototype.tryUpdateMiner = function() {
-	setTimeout(function()
-	{
-		var myCash = helpers.roundDecimal(window.myBot.coins.value, 4);
-		for (var minerIndex = 5; minerIndex >= minimumTypeOfMinerToBuy; minerIndex--) {
 			var multiPlicateur = (minerIndex == 0) ? 1.225 : 1.1;
 			var priceNext = window.myBot.__proto__.calculerPrixMiner(minerIndex);
 			// Si on a la tune pour acheter au moins la prochaine upgrade
