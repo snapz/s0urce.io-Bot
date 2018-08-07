@@ -1,0 +1,34 @@
+*{margin:0;padding:0;}
+
+body{
+  background:url("assets/images/b9694b0b6412bce80a65e3aabe6207ee.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:black;
+}
+
+.scrollableScroll tr th{white-space: nowrap;overflow: hidden;width: 100%;}
+.scrollableScroll{      overflow: scroll;overflow-y: hidden;}
+
+ul.console {
+   overflow: hidden;
+   overflow-y: scroll;
+   list-style: none;
+
+  font-family: Whitney,"Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+   background-color: #ffffff;
+   color: #000000;
+   display:block;
+   max-height:376px;
+   padding:5px 0 0 5px;
+}
+ul.console li {
+  margin-top:1px;
+  border-bottom:1px solid #E8E8E8;
+}
+
+.mytablecss tbody tr{
+  font-family:Verdana;
+}

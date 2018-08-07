@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="referrer" content="no-referrer" />
+        <title>myBot</title>
+        <link rel="stylesheet" type="text/css" href="assets/dist_semantic/semantic.css">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body class="ui page">
+    <div class="ui stackable menu">
+      <div class="item">
+        <img src="assets/images/logo.png">
+      </div>
+      <a class="item"><button class="ui button" id="viderConsole">Vider la console</button></a>
+
+      <a class="item"><button class="ui button blue" id="connecter">Connecter</button></a>
+      <div class="right menu">
+        <a class="item"><button class="ui button green" id="OnOfBot">Activer le bot</button></a>
+      </div>
+    </div>
+    <div class="ui container">
+      <div class="ui raised segment">
+
+
+
+<div id="context1">
+  <div class="ui top attached tabular menu">
+    <a class="item active" data-tab="ConsoleTabs" onclick="showOrHideMP(false)"><i class="browser icon"></i> Console</a>
+    <a class="item" data-tab="MPTabs" onclick="showOrHideMP(true)"><i class="comments outline icon"></i> Message privée</a>
+    <a class="item" data-tab="EventTabs" onclick="showOrHideMP(false)"><i class="protect icon"></i> Event log</a>
+    <a class="item" data-tab="FirewallTabs" onclick="showOrHideMP(false)"><i class="protect icon"></i> Firewall log</a>
+  </div>
+  <div class="ui tab segment active" data-tab="ConsoleTabs">
+
+
+        <div class="ui grid">
+            <div class="ui segment" id="tabOfConsole" style="padding:0;width:100%;min-height:30px;">
+              <div class="ui tab active" data-tab="ConsoleTabs/all"><ul class='console' id='console_All'></ul></div>
+            </div>
+        </div>
+
+  </div>
+
+  <div class="ui tab segment" data-tab="MPTabs">
+    <div class="ui grid">
+        <div class="ui segment" id="tabOfMP" style="padding:0;width:100%;min-height:30px;">
+          <div class="ui tab active" data-tab="MPTabs/all"><ul class='console' id='MP_All'></ul></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="ui tab segment" data-tab="EventTabs">
+    <div class="ui grid">
+        <div class="ui segment" id="tabOfEvent" style="padding:0;width:100%;min-height:30px;">
+          <div class="ui tab active" data-tab="EventTabs/all"><ul class='console' id='Event_All'></ul></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="ui tab segment" data-tab="FirewallTabs">
+    <div class="ui grid">
+        <div class="ui segment" id="tabOfFirewall" style="padding:0;width:100%;min-height:30px;">
+          <div class="ui tab active" data-tab="FirewallTabs/all"><ul class='console' id='Firewall_All'></ul></div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+        <br />
+
+        <div class="scrollableScroll">
+        <table class="ui celled table mytablecss">
+          <thead id="tableauGuiThead">
+            <tr>
+              <th style="display:none;">#</th>
+              <th style="width:50px">#</th>
+              <th style="width:300px">Nom</th>
+              <th style="width:50px">Level</th>
+              <th style="width:200px">PORT A</th>
+              <th style="width:200px">PORT B</th>
+              <th style="width:200px">PORT C</th>
+              <th style="width:300px">BTC</th>
+              <th style="width:300px">BTC/s</th>
+            </tr>
+          </thead>
+          <tbody id="tableauGui"><tr style="display:none;"></tr>
+          </tbody>
+        </table>
+        </div>
+
+
+        <br />
+
+        <div class="scrollableScroll">
+        <table class="ui celled table mytablecss">
+          <thead id="tableauGuiThead_ourFirewall">
+            <tr>
+              <th style="display:none;">#</th>
+              <th style="width:50px">Port</th>
+              <th style="width:400px">Charge x5</th>
+              <th style="width:400px">ChargeMax +5</th>
+              <th style="width:400px">Strength</th>
+              <th style="width:400px">Regeneration</th>
+            </tr>
+          </thead>
+          <tbody id="tableauGui_ourFirewall"><tr style="display:none;"></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <div id="showHideMiner">
+        <div class="scrollableScroll">
+        <table class="ui celled table mytablecss">
+          <thead id="tableauGuiThead_ourMiner">
+            <tr>
+              <th style="display:none;">#</th>
+              <th style="width:400px">Basic Miner</th>
+              <th style="width:400px">Advanced Miner</th>
+              <th style="width:400px">Mining Drill</th>
+              <th style="width:400px">Data Center</th>
+              <th style="width:400px">Botnet</th>
+              <th style="width:400px">Quantum Server</th>
+            </tr>
+          </thead>
+          <tbody id="tableauGui_ourMiner"><tr style="display:none;"></tr>
+          </tbody>
+        </table>
+        </div>
+        </div>
+
+      </div>
+    </div>  
+  
+    <div id="showHideMp" style="display:none;">
+    <br />
+    <div class="ui container">
+      <div class="ui raised segment">
+        
+        <div class="ui left icon input" style="width:20%;">
+          <input type="text" placeholder="ID USER" name="mp_id" id="mp_id">
+          <i class="hashtag icon"></i>
+        </div>
+
+        <div class="ui action input" style="width:79%;">
+          <input type="text" value="" name="mp_text" id="mp_text" maxlength="48">
+          <button class="ui teal right labeled icon button" id="mp_send">
+            <i class="send icon"></i>
+            Envoyer le MP
+          </button>
+        </div>
+
+      </div>
+    </div>  
+    </div>
+
+      <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="assets/dist_semantic/semantic.js"></script>
+      <script>
+      const LOG_ = {'console': 'console', 'mp' : 'MP', 'event': 'Event', 'firewall': 'Firewall'};
+      $('#context1 .menu .item')
+        .tab({
+          context: $('#context1')
+        })
+      ;
+      function showOrHideMP(showOrHide)
+      {
+        if(showOrHide) $('#showHideMp').show();
+        else $('#showHideMp').hide();
+
+        if(!showOrHide) $('#showHideMiner').show();
+        else $('#showHideMiner').hide();
+      }
+      function setMpId(idNew)
+      {
+        document.getElementById('mp_id').value = idNew;
+        document.getElementById('mp_text').value = '';
+        document.getElementById('mp_text').focus();
+      }
+      $('#mp_text').keypress(function (e) {
+        if (e.which == 13) {
+          $('#mp_send').click();
+          return false;
+        }
+      });
+      </script>
+      <script src="config.js"></script>
+      <script src="config_words.js"></script>
+      <script src="player.js"></script>
+      <script src="myBot.js"></script>
+      <!-- HELPERS -->
+      <script src="assets/js/helpers/helpers.js" type="text/javascript"></script>
+      <!-- GUI -->
+      <script src="assets/js/gui/gui.js" type="text/javascript"></script>
+      <!-- MAIN SCRIPT -->
+      <script src="assets/js/application.js" type="text/javascript"></script>
+    </body>
+</html> 
+

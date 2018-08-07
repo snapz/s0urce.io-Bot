@@ -1,0 +1,28 @@
+{
+  "name": "s0urce.io.bot",
+  "version": "2.0.0",
+  "description": "Bot for the game s0urce.io full automatic",
+  "main": "myBot.js",
+  "dependencies": {
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snapz/s0urce.io-Bot.git"
+  },
+  "keywords": [
+    "s0urce",
+    "s0urce.io",
+    "bot"
+  ],
+  "author": "sNapz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snapz/s0urce.io-Bot/issues"
+  },
+  "homepage": "https://github.com/snapz/s0urce.io-Bot#readme"
+}
